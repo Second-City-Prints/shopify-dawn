@@ -1,5 +1,14 @@
 {
   "sections": {
+    "ce31d887-295a-4113-baa9-757d77d5f5df": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% if customer.b2b? %}\n  <div>\n    <h2>Welcome, {{ customer.name }} from {{ customer.current_company.name }}!<\/h2>\n\n    <p>You are purchasing for the {{ customer.current_location.name }} location.<\/p>\n\n    {% if customer.company_available_locations.size > 1 %}\n      <h3>Select a different location:<\/h3>\n\n      <ul>\n        {% for location in customer.company_available_locations %}\n          {% unless location.current? %}\n            <li>\n              <a href=\"{{ location.url_to_set_as_current }}\">{{ location.name }}<\/a>\n            <\/li>\n          {% endunless %}\n        {% endfor %}\n      <\/ul>\n    {% endif %}\n  <\/div>\n{% endif %}",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -208,24 +217,15 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "ce31d887-295a-4113-baa9-757d77d5f5df": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "{% if customer.b2b? %}\n  <div>\n    <h2>Welcome, {{ customer.name }} from {{ customer.current_company.name }}!<\/h2>\n\n    <p>You are purchasing for the {{ customer.current_location.name }} location.<\/p>\n\n    {% if customer.company_available_locations.size > 1 %}\n      <h3>Select a different location:<\/h3>\n\n      <ul>\n        {% for location in customer.company_available_locations %}\n          {% unless location.current? %}\n            <li>\n              <a href=\"{{ location.url_to_set_as_current }}\">{{ location.name }}<\/a>\n            <\/li>\n          {% endunless %}\n        {% endfor %}\n      <\/ul>\n    {% endif %}\n  <\/div>\n{% endif %}",
-        "color_scheme": "background-1",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
+    "ce31d887-295a-4113-baa9-757d77d5f5df",
     "image_banner",
     "rich_text",
     "featured_collection",
     "collage",
     "video",
-    "multicolumn",
-    "ce31d887-295a-4113-baa9-757d77d5f5df"
+    "multicolumn"
   ]
 }
